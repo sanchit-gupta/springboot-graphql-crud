@@ -1,0 +1,55 @@
+http://localhost:8082/apis/graphql
+
+all POST calls
+
+--------------------------------------Fetch
+{
+    findAllAuthors {
+        id
+        name
+        age
+    }
+}
+
+{
+    findAllTutorials {
+        id
+        title
+        description
+        author {
+            id
+            name
+        }
+    }
+}
+
+----------------------------------------Create
+mutation {
+    createAuthor (name: "Author4", age : 44) {
+        id
+        name
+        age
+    }
+}
+
+mutation {
+    createTutorial (title: "Thirsty Crow", description: "Story of thirsty crow", author: 2) {
+        id
+        title
+        description
+    }
+}
+
+--------------------------------------------------------Update
+mutation {
+    updateTutorial (id: 5, title: "Thirsty Crow 2", description: "Story of thirsty crow") {
+        id
+        title
+        description
+    }
+}
+
+--------------------------------------------------------Delete
+mutation {
+    deleteTutorial (id: 5)
+}
